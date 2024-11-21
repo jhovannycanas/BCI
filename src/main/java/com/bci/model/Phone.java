@@ -17,6 +17,6 @@ public class Phone extends AbstractEntity {
     private String cityCode;
     private String contryCode;
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "person_id")
+    private Person person;
 }
