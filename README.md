@@ -1,4 +1,4 @@
-# BCI API Restful Users
+# BCI API
 
 Este es un proyecto API RESTful de usuarios utilizando **Spring Boot 3.3.5**, **Java 17**, **Lombok**, y **JWT** para generar el token. La API proporciona operaciones para creación de usuarios, validación de parametros de entrada y una base de datos H2 en memoria.
 
@@ -30,7 +30,7 @@ Este proyecto proporciona una API que permite realizar la creación de usuarios y
 
 ```bash
 git clone https://github.com/tu_usuario/tu_repositorio.git
-cd tu_repositorio
+cd carpeta_repositorio
 ```
 
 ### Asegúrate de tener Java 17 instalado. Puedes verificarlo con:
@@ -70,4 +70,27 @@ Ejemplos para consumo:
     }
   ]
 }
+```
+
+```bash
+curl --location 'http://localhost:8081/api/v1/bci/persons' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "Juan Rodríguez",
+    "email": "juanrodriguet@empresa.cl",
+    "password": "Secure@123",
+    "phones": [
+        {
+            "number": "1234567",
+            "cityCode": "1",
+            "contryCode": "57"
+        },
+        {
+            "number": "9876543",
+            "cityCode": "2",
+            "contryCode": "56"
+        }
+    ]
+}
+'
 ```
