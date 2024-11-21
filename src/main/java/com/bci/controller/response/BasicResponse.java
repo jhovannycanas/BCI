@@ -1,35 +1,40 @@
 package com.bci.controller.response;
 
 import com.bci.common.Constants;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.io.Serializable;
 import java.time.LocalDate;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 public class BasicResponse<T> implements Serializable {
 
-    private String mensaje;
-    private LocalDate date;
-    private T data;
+  private String mensaje;
 
-    public BasicResponse(T data) {
-        this.mensaje = Constants.SUCCESS_RESPONSE;
-        this.date = LocalDate.now();
-        this.data = data;
-    }
+  private LocalDate date;
 
-    public BasicResponse(String message) {
-        this.mensaje = message;
-        this.date = LocalDate.now();
-        this.data = null;
-    }
+  private T data;
 
-    public BasicResponse(String message, T data) {
-        this.mensaje = message;
-        this.date = LocalDate.now();
-        this.data = data;
-    }
+  public BasicResponse(T data) {
+
+    this.mensaje = Constants.SUCCESS_RESPONSE;
+    this.date = LocalDate.now();
+    this.data = data;
+  }
+
+  public BasicResponse(String message) {
+
+    this.mensaje = message;
+    this.date = LocalDate.now();
+    this.data = null;
+  }
+
+  public BasicResponse(String message, T data) {
+
+    this.mensaje = message;
+    this.date = LocalDate.now();
+    this.data = data;
+  }
+
 }

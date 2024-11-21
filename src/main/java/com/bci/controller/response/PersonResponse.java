@@ -1,17 +1,29 @@
 package com.bci.controller.response;
 
-import lombok.Builder;
-
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.UUID;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
 @Builder
-public class PersonResponse {
+@AllArgsConstructor
+@NoArgsConstructor
+public class PersonResponse implements Serializable {
 
-    private UUID id;
-    private LocalDate created;
-    private LocalDate modified;
-    private LocalDate lastLogin;
-    private String token;
-    private boolean isActive;
+  private UUID id;
+
+  private LocalDate created;
+
+  private LocalDate modified;
+
+  private LocalDate lastLogin;
+
+  private String token;
+
+  private boolean isActive;
+
 }

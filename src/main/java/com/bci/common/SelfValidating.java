@@ -1,22 +1,28 @@
 package com.bci.common;
 
-import jakarta.validation.*;
-
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
 import java.util.Set;
 
 public abstract class SelfValidating<T> {
 
-    private Validator validator;
+  private Validator validator;
 
-    public SelfValidating() {
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        validator = factory.getValidator();
-    }
+  public SelfValidating() {
 
-    protected void validateSelf() {
-        Set<ConstraintViolation<T>> violations = validator.validate((T) this);
-        if (!violations.isEmpty()) {
-            throw new ConstraintViolationException(violations);
-        }
+    ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+    validator = factory.getValidator();
+  }
+
+  protected void validateSelf() {
+
+    Set<ConstraintViolation<T>> violations = validator.validate((T) this);
+    if (!violations.isEmpty()) {
+      throw new ConstraintViolationException(violations);
     }
+  }
+
 }
